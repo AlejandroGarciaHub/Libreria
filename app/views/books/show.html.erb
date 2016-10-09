@@ -1,0 +1,59 @@
+<div style="width: 60%; margin: 0 auto">
+  
+
+  <h1>Titulo <%= @book.titulo%></h1>
+
+<%= form_for(@book) do |f|%>
+    <div class="field">
+  <div class="input-field col s6">
+            <textarea id="input_text" type="text" length="10" readonly="true" style="height: 250px;"></textarea>
+            <label for="input_text">    <%= @book.descripcion%></label>
+          </div>
+
+  </div>
+    <div class="field">
+  <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.autor%></label>
+          </div>
+
+  </div>
+    <div class="field">
+  <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.editorial%></label>
+          </div>
+
+  </div>
+    <div class="field">
+  <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.num_paginas%></label>
+          </div>
+
+  </div>
+    <div class="field">
+  <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.fecha_lanzamiento%></label>
+          </div>
+
+  </div>
+    <div class="field">
+    <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.precio_compra%></label>
+          </div>
+
+  </div>
+
+  <div class="field">
+          <div class="input-field col s6">
+            <input id="input_text" type="text" length="10"  disabled="disabled">
+            <label for="input_text">    <%= @book.precio_venta%></label>
+          </div>
+
+  </div>
+        
+<%end%>
+</div>

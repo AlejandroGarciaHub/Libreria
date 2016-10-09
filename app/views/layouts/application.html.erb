@@ -4,50 +4,35 @@
   <title>Libreria</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= csrf_meta_tags %>
-</head>
 <body>
 
-	<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <%= link_to "Libreria", "/", class:"navbar-brand"%>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="page-scroll">
-                    <%= link_to "Categorias", '/doc/moodle.html'%>
-                    </li>
-                    <li class="page-scroll">
-                    <%= link_to "Ofertas", '/curso'%>
-                    </li>
-                    <li class="page-scroll">
-                <%= link_to "Contacto", '/#contacto'%>
-                    </li>
-                    <li>
-                        <%=link_to "Cerrar Sesion", '/users/sign_out', method: :delete, class:"btn-signup"%>
-                    </li>
-                   <li >
-                        <%=link_to "Ingresar", '/users/sign_in', class:"btn-connect"%>
-                    </li>
-                    <li >
-                        <%=link_to "Registrarse", '/users/sign_up', class:"btn-signup"%>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+	
+    <nav style="width: 97%; margin: 1%;">
+    <div class="nav-wrapper" style="margin-left: 30px;">
+      <a href="/" class="brand-logo"><i class="material-icons">cloud</i>Libreria</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Categorias</a></li>
+        <li><a href="badges.html">Ofertas</a></li>
+        <li><a href="collapsible.html">Mi cuenta</a></li>
+        <li><a href="/books/new">Administrar</a></li>
+        <li><a class="waves-effect waves-light btn" style="background-color: #18bc9c;">Ingresar</a></li>
+        <li><a class="waves-effect waves-light btn" style="background-color: #A60A27;">Registrarse</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Categorias</a></li>
+        <li><a href="badges.html">Ofertas</a></li>
+        <li><a href="collapsible.html">Mi cuenta</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="mobile.html">Administrar</a></li>
+        <li><a href="collapsible.html">Ingresar</a></li>
+        <li><a href="mobile.html">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav>
+        
 
 <%= yield %>
 

@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+
+	 $(".button-collapse").sideNav();
+
+
+	$('.datepicker').pickadate({
+		startDate: '01-01-2013',
+    endDate: '13-12-2014',
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format: 'dd-mm-yyyy' });
+});
