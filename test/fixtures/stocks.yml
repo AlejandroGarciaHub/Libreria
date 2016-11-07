@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_stock: false
+  stockActual: 1
+  fechaIngreso: 2016-11-05
+
+two:
+  en_stock: false
+  stockActual: 1
+  fechaIngreso: 2016-11-05

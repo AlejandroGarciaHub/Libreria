@@ -4549,7 +4549,7 @@ small {
 }
 
 .card.small .card-image, .card.medium .card-image, .card.large .card-image {
-  max-height: 60%;
+  max-height: 80%;
   overflow: hidden;
 }
 
@@ -4570,7 +4570,8 @@ small {
 }
 
 .card.small {
-  height: 300px;
+  height: 530px;
+  width: 85%;
 }
 
 .card.medium {
@@ -5901,7 +5902,6 @@ textarea.materialize-textarea + label:after {
 .input-field {
   position: relative;
   margin-top: 1rem;
-  border-radius: 4px;
 }
 
 .input-field.col label {

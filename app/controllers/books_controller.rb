@@ -4,6 +4,10 @@ class BooksController < ApplicationController
 		@books = Book.all
 	end
 
+	def generos
+		@categories=Category.all
+		@books= Book.all
+	end
 	def show
 		@book = Book.find(params[:id])
 	end
@@ -12,15 +16,12 @@ class BooksController < ApplicationController
 		@book=Book.new
 	end
 
+	def edit
+		@book = Book.find(params[:id])		
+	end
+
 	def create
-		@book= Book.new(titulo: params[:book][:titulo],
-			descripcion: params[:book][:descripcion],
-			autor: params[:book][:autor],
-			fecha_lanzamiento: params[:book][:fecha_lanzamiento],
-			editorial: params[:book][:editorial],
-			num_paginas: params[:book][:num_paginas],
-			precio_compra: params[:book][:precio_compra],
-			precio_venta: params[:book][:precio_venta])
+		@book= Book.new(book_params)
 
 		if @book.save
 			redirect_to @book
@@ -29,7 +30,25 @@ class BooksController < ApplicationController
 		end		
 	end
 
+	def destroy
+		@book=Book.find(params[:id])
+		@book.destroy
+		redirect_to books_path
+	end
+
 	def update
-		
+		@book=Book.find(params[:id])		
+		if @book.update(book_params)
+			redirect_to @book
+		else 
+			render :edit
+		end
+	end
+
+	private
+
+	def book_params
+		params.require(:book).permit(:titulo,:descripcion,:autor,:fecha_lanzamiento,:editorial,:num_paginas,
+			:precio_compra,:precio_venta,:isbn, :category_id,:cover,:stock)
 	end
 end

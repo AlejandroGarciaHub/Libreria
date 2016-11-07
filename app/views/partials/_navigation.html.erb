@@ -1,0 +1,59 @@
+
+    <nav style="width: 99%; margin: 0.5%;">
+    <div class="nav-wrapper" style="margin-left: 1%;">
+      <a href="/" class="brand-logo"><i class="material-icons">cloud</i>Libreria</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%=link_to('Nuevo', categories_path)%></li> 
+        <li><%= link_to "Generos", "/books/generos"%></li>
+
+        <%if user_signed_in?%>
+
+          <%unless current_user.try(:admin?)%>
+            <li><a href="#">Mi cuenta</a></li>
+            <li>            
+          <a href="/cart" class="brand-logo"><i class="material-icons">shopping_cart</i></a>             
+            </li>
+          <%else%>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Libros',  books_path %></li>
+              <li><%= link_to 'Categorias', categories_path %></li>
+              <li><%= link_to 'Ventas', '' %></li> 
+            </ul>
+          </li>
+            <%end%>
+          <li>
+            <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class:"waves-effect waves-light btn", style:"background-color:#A60A27; margin-left:15%;"%>
+          </li>
+        
+        <%else%>
+          <li>
+              <%= link_to "Ingresar", new_user_session_path, class:"waves-effect waves-light btn", style:"background-color:#18bc9c;"%>          
+          </li>
+          <li>
+              <%= link_to "Registrarse", new_user_registration_path, class:"waves-effect waves-light btn", style:"background-color:#A60A27;"%>          
+          </li>
+        <%end%>
+
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Nuevo</a></li>
+        <li><a href="#">Generos</a></li>
+        <%if user_signed_in?%>
+          <%unless current_user.try(:admin?)%>        
+            <li><a href="#">Mi cuenta</a></li>
+          <%else%>
+            <li><%=link_to('Administrar', new_book_path)%></li>
+          <%end%>
+        <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete%></li>            
+        <%else%>
+          <li><%= link_to "Ingresar", new_user_session_path%></li>
+          <li><%= link_to "Registrarse", new_user_registration_path%></li>
+        <%end%>        
+      </ul>
+    </div>
+  </nav>

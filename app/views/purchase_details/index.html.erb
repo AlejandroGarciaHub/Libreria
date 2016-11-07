@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Purchase Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchase_details.each do |purchase_detail| %>
+      <tr>
+        <td><%= purchase_detail.cantidad %></td>
+        <td><%= link_to 'Show', purchase_detail %></td>
+        <td><%= link_to 'Edit', edit_purchase_detail_path(purchase_detail) %></td>
+        <td><%= link_to 'Destroy', purchase_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchase detail', new_purchase_detail_path %>

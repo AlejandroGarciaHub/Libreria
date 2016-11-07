@@ -1,0 +1,57 @@
+
+
+<div class="center-xs text-center row">
+  <div class=" col s12">
+
+  <p>
+  <strong>Fecha:</strong>
+  <%= @purchase.fecha %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @purchase.pago %>
+</p>
+
+<% total =0%>
+
+<% cantidadLibros =0%>
+
+<% (@purchase_details).each do |detail| %>
+
+<br>
+
+	<ul>
+
+	      <div class="col-md-12 cards-container" >
+	                <div class="card small sticky-action" style="height: 300px;">
+	                  <div class="card-image waves-effect waves-light">
+	                    <%=image_tag detail.book.cover.url(:thumb), class:"activator", style:"margin:5%;"%>
+	                  </div>
+	                  <div class="card-content">
+	                    <span class="card-title activator grey-text text-darken-4"><%=detail.book.titulo%><i class="material-icons right">more_vert</i></span>
+	              
+	                    <p style="text-align: right;"><b>Cantidad:</b> <%=detail.cantidad%> - <b>Precio:</b> $ <%=detail.book.precio_venta%></p>                    
+	                  </div>  
+
+	                </div>
+	      </div>
+	      <%cantidadLibros+= detail.cantidad%>
+	    <% total+= detail.cantidad*detail.book.precio_venta%>
+
+	 
+	      
+	</ul>
+
+
+<% end %>
+</div>
+</div>
+
+ <div class="col-md-10" style="text-align: right;">
+<p><b><%=cantidadLibros%> libros comprados</b></p>
+  <p><b>Total pagado: <%= number_to_currency(total,:unit => '$')%></b></p>   
+
+
+<%= link_to 'Back', purchases_path %>
+  </div>

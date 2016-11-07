@@ -1,0 +1,86 @@
+  <h1><%=name%> Titulo</h1>
+
+
+<%= form_for(@book) do |f|%>
+
+  <% @book.errors.full_messages.each do |message|%>
+      <div class="be-red  white top-space">
+        * <%= message%>
+      </div>
+  <%end%>
+  <div class="field">
+      <%= f.text_field :titulo, placeholder: "Titulo", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+    <div class="field">
+      <%= f.text_area :descripcion, placeholder: "Ingrese una sinopsis", class:"form-control", style:"height: 250px; width:80%;"%>
+  </div>
+
+  <div class="field">
+      Portada: <%= f.file_field :cover%>
+  </div>
+<div class="field">
+      <%= f.text_field :autor, placeholder: "Autor", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+  <div class="field">
+      <%= f.text_field :editorial, placeholder: "Editorial", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+  <div class="field">
+      <%= f.text_field :num_paginas, placeholder: "Numero de paginas", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+  <div class="field">
+   <%= f.collection_select :category_id, Category.all, :id, :nombre, { prompt: "Elije una categoria" }, class: "browser-default" %>  
+    </div>
+  <div class="field">
+      <%= f.text_field :fecha_lanzamiento, placeholder: "Fecha de lanzamiento", class:"input-group datepicker", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+    <div class="field">
+      <%= f.text_field :precio_compra, placeholder: "Precio compra", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+    <div class="field">
+      <%= f.text_field :precio_venta, placeholder: "Precio venta", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+
+    <div class="field">
+      <%= f.text_field :isbn, placeholder: "ISBN", style:"background-color: #fff; border-radius: 2px; width: 70%;"%>
+  </div>
+
+  <button class="btn waves-effect waves-light" style="width: 170px;" type="submit" name="action">Guardar
+    <i class="material-icons right">send</i>
+  </button>
+
+<!--
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6 campo-texto">
+         <i class="material-icons prefix">account_circle</i>
+          <input placeholder="Nombre" id="first_name" type="text" class="validate" style="background-color: #fff">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="Apellido" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+    -->    
+<%end%>

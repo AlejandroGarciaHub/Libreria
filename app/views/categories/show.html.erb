@@ -1,0 +1,40 @@
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @category.nombre %>
+</p>
+
+<div class="row container-fluid" style="margin-top: 300px; margin-left: -990px;" >
+
+ <% @books.each do |book| %>
+ <%if book.category_id==@category.id%>
+<main id="container" style="margin-right: 50px;">
+  <h2><%=book.titulo%></h2>
+  <div class="img-wrapper">
+  <a href="/books/<%=book.id%>">
+      <img src="https://d13yacurqjgara.cloudfront.net/users/2733/screenshots/741958/dribbble-foxes.jpg">
+  </div>
+  <p class="detail"><%=book.descripcion%></p>
+
+  <div class="button-wrapper">
+      <div class="layer"></div>
+      <button class="main-button fa fa-info">
+          <div class="ripple"></div>
+      </button>
+  </div>
+
+  <div class="layered-content">
+      <button class="close-button fa fa-times"></button>
+      <div class="content">
+          <img src="https://inspirationfeeed.files.wordpress.com/2013/01/rihm-logo-31.jpg" alt="Balapa">
+          <p>Autor</p>
+          <p>Ver en</a></p>
+      </div>
+  </div>
+</main>
+ <%end%>
+ <%end%>
+ </div>
+
+<%= link_to 'Editar', edit_category_path(@category) %> |
+<%= link_to 'Volver', categories_path %>

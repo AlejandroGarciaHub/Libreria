@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>En stock:</strong>
+  <%= @stock.en_stock %>
+</p>
+
+<p>
+  <strong>Stockactual:</strong>
+  <%= @stock.book.titulo %>
+</p>
+
+<p>
+  <strong>Stockactual:</strong>
+  <%= @stock.stockActual %>
+</p>
+
+<p>
+  <strong>Fechaingreso:</strong>
+  <%= @stock.fechaIngreso %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

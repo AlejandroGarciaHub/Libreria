@@ -1,0 +1,37 @@
+
+<div class="center-xs text-center row">
+  <div class=" col s12">
+      <ul class="tabs" style="margin-top: 2em;">
+        <%@categories.each do |category|%>
+         <li class="tab col s3"><a  href="#<%=category.nombre%>"><%=category.nombre%></a></li>
+        <%end%>
+      </ul>
+ </div>
+
+
+<%@categories.each do |category|%>
+  <div id="<%=category.nombre%>">
+    <% @books.each do |book|%>
+      <%if category.nombre==book.category.nombre%>    
+        <div class="col-md-4 cards-container">
+          <div class="card small sticky-action">
+            <div class="card-image waves-effect waves-light">
+              <%=image_tag book.cover.url(:medium), class:"activator", style:"margin-top:5%;"%>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%=book.titulo%><i class="material-icons right">more_vert</i></span>
+        
+              <p><a href="/cart/<%=book.id%>">Agregar al carrito</a></p> 
+              <p style="text-align: right;">$ <%=book.precio_venta%></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><%=book.titulo%><i class="material-icons right">close</i></span>
+              <p><%=book.descripcion%></p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>    
+<%end%>
+</div>

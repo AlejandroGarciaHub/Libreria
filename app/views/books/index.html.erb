@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Hola</title>
-</head>
-<body>
-<% @books.each do |book|%>
-	
-	<main id="container">
-  <h2><%=book.titulo%></h2>
-  <div class="img-wrapper">
-      <img src="https://d13yacurqjgara.cloudfront.net/users/2733/screenshots/741958/dribbble-foxes.jpg" alt="Just Background">
-  </div>
-  <p class="detail"><%=book.descripcion%></p>
 
-  <div class="button-wrapper">
-      <div class="layer"></div>
-      <button class="main-button fa fa-info">
-          <div class="ripple"></div>
-      </button>
-  </div>
+<div class="center-xs text-center row">
 
-  <div class="layered-content">
-      <button class="close-button fa fa-times"></button>
-      <div class="content">
-          <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/111167/profile/profile-512_4.jpg" alt="Balapa">
-          <p>Autor</p>
-          <p>See also my <a href="http://codepen.io/balapa/details/gbQbXR/">other pen</a></p>
-      </div>
-  </div>
-</main>
 
-<%end%>
-</body>
-</html>
+    <% @books.each do |book|%>
+        <div class="col-md-4 cards-container">
+          <div class="card small sticky-action">
+            <div class="card-image waves-effect waves-light">
+              <%=image_tag book.cover.url(:medium), class:"activator", style:"margin-top:5%;"%>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%=book.titulo%><i class="material-icons right">more_vert</i></span>
+        
+              <p><a href="/cart/<%=book.id%>">Agregar al carrito</a></p> 
+              <p style="text-align: right;">$ <%=book.precio_venta%></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><%=book.titulo%><i class="material-icons right">close</i></span>
+              <p><%=book.descripcion%></p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+  </div>    
