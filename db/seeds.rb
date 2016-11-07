@@ -17,3 +17,4 @@ Category.create(nombre: "Policiaco")
 Category.create(nombre: "Juvenil")
 Category.create(nombre: "Aventuras")
 Category.create(nombre: "Fantasia")
+
