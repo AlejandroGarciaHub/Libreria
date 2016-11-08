@@ -30,6 +30,7 @@
       </div>
     <% total+= quantity*book.precio_venta%>
   <%end%>
+  <%=f.hidden_field :pago, :value => total   %>
   <div class="col-md-10" style="text-align: right;">
 <p><b><%=@cart.size.to_i%> libros agregados</b></p>
   <p><b>Total a pagar: <%= number_to_currency(total,:unit => '$')%></b></p>   
