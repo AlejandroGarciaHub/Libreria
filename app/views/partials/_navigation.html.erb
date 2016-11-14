@@ -4,7 +4,10 @@
       <a href="/" class="brand-logo"><i class="material-icons">cloud</i>Libreria</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+
+          <%unless current_user.try(:admin?)%>
         <li><%=link_to('Nuevo', books_path)%></li> 
+        <%end%>
         <li><%= link_to "Generos", "/books/generos"%></li>
 
         <%if user_signed_in?%>
@@ -42,8 +45,10 @@
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="#">Nuevo</a></li>
-        <li><a href="#">Generos</a></li>
+        <%unless current_user.try(:admin?)%>
+        <li><%=link_to('Nuevo', books_path)%></li> 
+        <%end%>
+        <li><%= link_to "Generos", "/books/generos"%></li>
         <%if user_signed_in?%>
           <%unless current_user.try(:admin?)%>        
             <li><a href="#">Mi cuenta</a></li>
