@@ -60,6 +60,7 @@ before_action :authenticate_user!
   else
       @cart={}      
     end
+    @cantidad=0
     @purchase = current_user.purchases.new(purchase_params)
     @purchase_detail=PurchaseDetail.new
     respond_to do |format|
@@ -68,8 +69,13 @@ before_action :authenticate_user!
           @purchase_detail=PurchaseDetail.new
           @purchase_detail.purchase_id= @purchase.id
           @purchase_detail.book_id= id
+
+            @book=Book.where(id: 3).first
+            @cantidad=@book.stock-quantity
+            @book.update_attributes(stock: @cantidad)
           @purchase_detail.cantidad= quantity
-          @purchase_detail.save
+           if @purchase_detail.save
+          end  
         end
         session[:cart]={}
         @cart={}

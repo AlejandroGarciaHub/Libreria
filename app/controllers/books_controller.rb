@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
 
 	def index
-		@books = Book.all
+		@books = Book.where('stock >?', 0)
 	end
 
 	def generos
 		@categories=Category.all
-		@books= Book.all
+		@books= Book.where('stock >?', 0)
 	end
 	def show
 		@book = Book.find(params[:id])

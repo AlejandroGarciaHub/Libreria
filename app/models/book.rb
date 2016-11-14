@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
 	belongs_to :category
-	has_one :stock
+	has_many :stocks
 	has_many :purchase_details
 
 	has_attached_file :cover, styles: {medium: "600x400", thumb:"300x200", mini:"150x100"}

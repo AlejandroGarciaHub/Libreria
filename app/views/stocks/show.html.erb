@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="center-xs text-center row">
+  <div class=" col-s6 col-md6">
+
+  <h3>Ingreso a almacen-reporte</h3>
 
 <p>
-  <strong>En stock:</strong>
-  <%= @stock.en_stock %>
-</p>
-
-<p>
-  <strong>Stockactual:</strong>
+  <strong style="font-size: 2em;">Libro</strong><br>
   <%= @stock.book.titulo %>
 </p>
 
-<p>
-  <strong>Stockactual:</strong>
+<p style="margin-top: 2em;">
+    <strong style="font-size: 2em;">Cantidad agregada</strong><br>
   <%= @stock.stockActual %>
 </p>
 
-<p>
-  <strong>Fechaingreso:</strong>
+<p style="margin-top: 2em;">
+    <strong style="font-size: 2em;">Fecha de ingreso:</strong><br>
   <%= @stock.fechaIngreso %>
 </p>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+<%= link_to 'Regresar', stocks_path %>
+</div>
+</div>

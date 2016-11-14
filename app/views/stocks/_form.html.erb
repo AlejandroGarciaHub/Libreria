@@ -1,4 +1,5 @@
-<%= form_for(@stock) do |f| %>
+
+  <%= form_for(@stock) do |f| %>
   <% if @stock.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
@@ -15,14 +16,14 @@
    <%= f.collection_select :book_id, Book.all, :id, :titulo, { prompt: "Elije un libro" }, class: "browser-default" %>  
     </div>
   <div class="field">
-    <%= f.label :stockActual %><br>
+    <%= f.label :stockActual, "Cantidad" %><br>
     <%= f.number_field :stockActual %>
   </div>
   <div class="field">
-    <%= f.label :fechaIngreso %><br>
+    <%= f.label :fechaIngreso, "Fecha de Ingreso" %><br>
     <%= f.text_field :fechaIngreso, class:"input-group datepicker" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Añadir"%>
   </div>
 <% end %>

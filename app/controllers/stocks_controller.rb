@@ -26,12 +26,13 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(stock_params)
 
+    @book=Book.where(id: @stock.book_id).first
+    @cantidad=0
+    @cantidad=@stock.stockActual.to_i+@book.stock.to_i
 
     respond_to do |format|
       if @stock.save
-        @book=Book.find(@stock.book_id)
-        @cantidad= @book.stock + @stock.stockActual.to_i
-        @book.update_attributes(:stock=> cantidad)
+        @book.update_attributes(:stock=> @cantidad)
         format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
         format.json { render :show, status: :created, location: @stock }
       else

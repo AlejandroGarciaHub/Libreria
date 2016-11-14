@@ -1,6 +1,6 @@
 class PurchaseDetailsController < ApplicationController
   before_action :set_purchase_detail, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_book
   # GET /purchase_details
   # GET /purchase_details.json
   def index
@@ -24,10 +24,10 @@ class PurchaseDetailsController < ApplicationController
   # POST /purchase_details
   # POST /purchase_details.json
   def create
-    @purchase_detail = PurchaseDetail.new(purchase_detail_params)
-
+ 
     respond_to do |format|
       if @purchase_detail.save
+
         format.html { redirect_to @purchase_detail, notice: 'Purchase detail was successfully created.' }
         format.json { render :show, status: :created, location: @purchase_detail }
       else
@@ -65,6 +65,10 @@ class PurchaseDetailsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase_detail
       @purchase_detail = PurchaseDetail.find(params[:id])
+    end
+
+      def set_book
+      @book = Book.find(id: params[:book_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

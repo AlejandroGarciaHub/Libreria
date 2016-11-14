@@ -1,6 +1,7 @@
-<%= link_to "Agregar nuevo libro", new_book_path, class:"waves-effect waves-light btn", style:"background-color:#18bc9c; color:#fff; margin-left:80%;"%>   
+ <%unless current_user.try(:admin?)%>
 
 <div class="center-xs text-center row">
+<div class="row center-xs">
 
     <% @books.each do |book|%>
         <div class="col-md-4 cards-container">
@@ -22,3 +23,38 @@
         </div>
       <%end%>
   </div>    
+<%else%>
+<%= link_to "Agregar nuevo libro", new_book_path, class:"waves-effect waves-light btn", style:"background-color:#18bc9c; color:#fff; margin-left:80%;"%>   
+<div class="center-xs text-center row">
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-8  col-md-offset-2">
+<h1>Lista de Libros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio de Compra</th>
+      <th>Precio de venta</th>
+      <th>Stock Disponible</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.titulo %></td>
+        <td><%= book.precio_compra %></td>
+        <td><%= book.precio_venta %></td>
+        <td><%= book.stock %></td>
+        <td><%= link_to 'Editar', edit_book_path(book) %></td>
+        <td><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+</div>
+<%end%>

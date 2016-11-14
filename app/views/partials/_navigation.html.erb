@@ -4,13 +4,13 @@
       <a href="/" class="brand-logo"><i class="material-icons">cloud</i>Libreria</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><%=link_to('Nuevo', categories_path)%></li> 
+        <li><%=link_to('Nuevo', books_path)%></li> 
         <li><%= link_to "Generos", "/books/generos"%></li>
 
         <%if user_signed_in?%>
 
           <%unless current_user.try(:admin?)%>
-            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="/users/edit">Mis Datos</a></li>
             <li>            
           <a href="/cart" class="brand-logo"><i class="material-icons">shopping_cart</i></a>             
             </li>
@@ -22,6 +22,7 @@
               <li><%= link_to 'Libros',  books_path %></li>
               <li><%= link_to 'Categorias', categories_path %></li>
               <li><%= link_to 'Ventas', purchases_path %></li> 
+               <li><%= link_to 'Ingreso a almacen', new_stock_path %></li> 
             </ul>
           </li>
             <%end%>
