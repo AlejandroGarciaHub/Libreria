@@ -70,7 +70,7 @@ before_action :authenticate_user!
           @purchase_detail.purchase_id= @purchase.id
           @purchase_detail.book_id= id
 
-            @book=Book.where(id: 3).first
+            @book=Book.where(id: quantity).first
             @cantidad=@book.stock-quantity
             @book.update_attributes(stock: @cantidad)
           @purchase_detail.cantidad= quantity
