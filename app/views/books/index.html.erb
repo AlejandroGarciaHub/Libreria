@@ -7,7 +7,7 @@
         <div class="col-md-4 cards-container">
           <div class="card small sticky-action">
             <div class="card-image waves-effect waves-light">
-              <%=image_tag book.cover.url(:medium), class:"activator", style:"margin-top:5%;"%>
+              <%=cl_image_tag book.cover.url(:medium), class:"activator", style:"margin-top:5%;"%>
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4"><%=book.titulo%><i class="material-icons right">more_vert</i></span>

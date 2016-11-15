@@ -7,7 +7,7 @@
 
 
   <div class="field col s4 center-xs" style="width: 20%; margin: 0 auto">
-    <%= image_tag @book.cover.url(:medium)%>
+    <%= cl_image_tag @book.cover.url(:medium)%>
   </div>
     <%=f.label :descripcion%>
       <div class="field">      

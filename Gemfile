@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "font-awesome-rails"
-
+gem 'cloudinary'
 gem 'paperclip'
 
 gem "devise"

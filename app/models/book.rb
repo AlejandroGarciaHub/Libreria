@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
 	has_many :stocks
 	has_many :purchase_details
 
-	has_attached_file :cover, styles: {medium: "600x400", thumb:"300x200", mini:"150x100"}
+	has_attached_file :cover, :storage => :cloudinary, styles: {medium: "600x400", thumb:"300x200", mini:"150x100"}
 	validates_attachment :cover, content_type: { content_type: /\Aimage\/.*\Z/ }
 
 	validates :titulo,presence: true, uniqueness: true 
